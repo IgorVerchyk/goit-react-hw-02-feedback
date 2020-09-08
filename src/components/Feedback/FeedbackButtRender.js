@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import FbButt from './FeedbackButton'
 import style from './Feedback.module.css'
 
-const FeedbackButtRender = ({ feedbacks, onLeaveFeedback }) => (
+const FeedbackButtRender = ({ options, onLeaveFeedback }) => (
   <div className={style.controls_container}>
-    {feedbacks.map((buttonChar) => (
+    {options.map((buttonChar) => (
       <FbButt
         key={buttonChar}
         nameBtn={buttonChar}
@@ -16,7 +16,7 @@ const FeedbackButtRender = ({ feedbacks, onLeaveFeedback }) => (
 )
 
 FeedbackButtRender.propTypes = {
-  feedbacks: PropTypes.array.isRequired,
+  options: PropTypes.array.isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
 }
 

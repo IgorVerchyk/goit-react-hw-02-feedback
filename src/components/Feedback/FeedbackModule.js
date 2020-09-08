@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const FeedbackModule = ({ title, children }) => (
+const SectionTitle = ({ title, children }) => (
   <>
     <h2>{title}</h2>
     {children}
   </>
 )
 
-FeedbackModule.propTypes = {
+SectionTitle.propTypes = {
   title: PropTypes.string,
 }
 
-export default FeedbackModule
+export default SectionTitle

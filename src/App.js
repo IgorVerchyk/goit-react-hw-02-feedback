@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Layout from './components/Layout'
-import FbModule from './components/Feedback/FeedbackModule'
+import SectionTitle from './components/Feedback/FeedbackModule'
 import FbStat from './components/Feedback/FeedbackStat'
 import FeedbackButtRender from './components/Feedback/FeedbackButtRender'
 
@@ -32,19 +32,22 @@ export default class App extends Component {
     const { good, neutral, bad } = this.state
     return (
       <Layout>
-        <FbModule title="Please leave feedback">
+        <SectionTitle title="Please leave feedback">
           <FeedbackButtRender
-            feedbacks={Object.keys(this.state)}
+            options={Object.keys(this.state)}
             onLeaveFeedback={this.onLeaveFeedback}
           />
+        </SectionTitle>
+        <SectionTitle>
           <FbStat
+            title="Statistics"
             good={good}
             neutral={neutral}
             bad={bad}
             total={this.countTotalFeedback()}
             statPersentage={this.countPositiveFeedbackPercentage()}
           />
-        </FbModule>
+        </SectionTitle>
       </Layout>
     )
   }
