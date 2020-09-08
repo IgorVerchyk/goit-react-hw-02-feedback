@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import Layout from './components/Layout'
+import FbModule from './components/Feedback/FeedbackModule'
+import FbStat from './components/Feedback/FeedbackStat'
+import FeedbackButtRender from './components/Feedback/FeedbackButtRender'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  }
+
+  onLeaveFeedback = (buttName) => {
+    this.setState({ [buttName]: this.state[buttName] + 1 })
+  }
+  render() {
+    const { good, neutral, bad } = this.state
+    return (
+      <Layout>
+        <FbModule title="Please leave feedback">
+          <FeedbackButtRender
+            feedbacks={Object.keys(this.state)}
+            onLeaveFeedback={this.onLeaveFeedback}
+          />
+          <FbStat good={good} neutral={neutral} bad={bad} />
+        </FbModule>
+      </Layout>
+    )
+  }
 }
-
-export default App;
