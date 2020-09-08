@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    
 }
 .controls_container{
     display: flex;
@@ -12,5 +13,6 @@
     text-align: center;
     text-transform: uppercase;
     text-decoration: none;
+    margin: 10px;
     
 }

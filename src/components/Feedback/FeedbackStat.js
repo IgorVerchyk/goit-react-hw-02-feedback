@@ -2,7 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const FeedbackStat = ({ good, neutral, bad, total, statPersentage }) => {
-  return (
+  return total === 0 ? (
+    <>
+      <h2>Statistics</h2>
+      <p>No feedback given</p>
+    </>
+  ) : (
     <>
       <h2>Statistics</h2>
       {
@@ -23,7 +28,7 @@ FeedbackStat.propTypes = {
   neutral: PropTypes.number.isRequired,
   bad: PropTypes.number.isRequired,
   total: PropTypes.number.isRequired,
-  statPersentage: PropTypes.number,
+  statPersentage: PropTypes.number.isRequired,
 }
 
 export default FeedbackStat
